@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta  charaset="utf-8 " >
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>TO-DO WEBPAGE</title>
+        <style type="text/css" media="all">
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .checked{
+                text-decoration: line-through;
+                font-style: italic;
+                color: #000;
+            }
+
+            body{
+                display: flex;
+                justify-content: center;
+                height: 100vh;
+                background: #ff00a6;
+            }
+
+            .container{
+                margin-top: 30px;
+            }
+
+            input,button{
+                padding: 8px 10px;
+                border-radius: 20px;
+                border: 2px solid #fff;
+                box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.863);
+                font-size: 19px;
+                letter-spacing: 1px; 
+                font-weight: 600;
+                outline: none;
+                color: rgba(0, 0, 0, 0.762);
+            }
+
+            button{
+                padding: 9px 20px;
+                background: #f2ff00;
+            }
+
+            button:hover{
+                
+                background:#00ff33;
+
+                
+            }
+
+            .cl{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 20px;
+                color: #fff;
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 1px;
+
+            }
+
+            h1,p{
+                color: #2b2626d5;
+                margin: 0 0 10px 75px;
+            }
+
+            p{
+                font-size: 11px;
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            
+            <h1>TO-DO LIST</h1>
+            <p> v 1.0</p>
+            <input type="text" id="to-do" />
+            <button onclick="js_func()">+</button>
+            <ul id="mylist"></ul>
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            var mylist= document.getElementById('mylist');
+            function js_func(){
+                var to_do = document.getElementById('to-do').value;
+                var li = document.createElement('LI');
+                var textnode = document.createTextNode(to_do);
+                li.classList.add('cl');
+                li.appendChild(textnode);
+                mylist.appendChild(li);
+            }
+            mylist.addEventListener('click',function(ev){
+                if(ev.target.tagName === 'LI'){
+                    ev.target.classList.toggle("checked");
+                }
+            });
+        </script>
+    </body>
+</html>
